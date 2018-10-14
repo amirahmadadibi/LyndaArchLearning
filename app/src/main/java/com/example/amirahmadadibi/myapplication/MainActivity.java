@@ -14,6 +14,7 @@ import android.view.MenuItem;
 import android.widget.LinearLayout;
 
 import com.example.amirahmadadibi.myapplication.model.NoteEntity;
+import com.example.amirahmadadibi.myapplication.ui.NotesAdapter;
 import com.example.amirahmadadibi.myapplication.utilities.SampleData;
 
 import java.util.ArrayList;
@@ -26,6 +27,8 @@ public class MainActivity extends AppCompatActivity {
     @BindView(R.id.recycler_view)
     RecyclerView mRecyclerView;
     private List<NoteEntity> noteEntities = new ArrayList<>();
+    private NotesAdapter mAdapter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -54,6 +57,8 @@ public class MainActivity extends AppCompatActivity {
         mRecyclerView.setHasFixedSize(true);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         mRecyclerView.setLayoutManager(linearLayoutManager);
+        mAdapter = new NotesAdapter(noteEntities, this);
+        mRecyclerView.setAdapter(mAdapter);
     }
 
     @Override
