@@ -14,7 +14,7 @@ public class EditorActvity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_editor_actvity);
         Toolbar toolbar =  findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+        setSupportActionBar(toolbar); 
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }

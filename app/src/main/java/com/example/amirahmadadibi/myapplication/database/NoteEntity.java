@@ -1,23 +1,34 @@
-package com.example.amirahmadadibi.myapplication.model;
+package com.example.amirahmadadibi.myapplication.database;
+
+import android.arch.persistence.room.Entity;
+import android.arch.persistence.room.Ignore;
+import android.arch.persistence.room.PrimaryKey;
 
 import java.util.Date;
 
 //it's going to be come a components that use Room library
+@Entity(tableName = "notes")
 public class NoteEntity {
+    @PrimaryKey(autoGenerate = true)
     private int id;
     private Date date;
     private String text;
+
     //create and assign values individually
+    @Ignore
     public NoteEntity() {
 
     }
+
     //edit
-    public NoteEntity(int id, Date date, String text) {
+    public   NoteEntity(int id, Date date, String text) {
         this.id = id;
         this.date = date;
         this.text = text;
     }
+
     //new with auto id
+    @Ignore
     public NoteEntity(Date date, String text) {
         this.date = date;
         this.text = text;
@@ -46,6 +57,7 @@ public class NoteEntity {
     public void setText(String text) {
         this.text = text;
     }
+
     //for  debugning
     @Override
     public String toString() {

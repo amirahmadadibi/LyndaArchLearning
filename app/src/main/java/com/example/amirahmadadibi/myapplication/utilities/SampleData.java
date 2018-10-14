@@ -1,6 +1,6 @@
 package com.example.amirahmadadibi.myapplication.utilities;
 
-import com.example.amirahmadadibi.myapplication.model.NoteEntity;
+import com.example.amirahmadadibi.myapplication.database.NoteEntity;
 
 import java.util.ArrayList;
 import java.util.Calendar;

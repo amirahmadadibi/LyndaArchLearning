@@ -1,7 +1,6 @@
 package com.example.amirahmadadibi.myapplication.ui;
 
 import android.content.Context;
-import android.service.autofill.TextValueSanitizer;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -11,7 +10,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.amirahmadadibi.myapplication.R;
-import com.example.amirahmadadibi.myapplication.model.NoteEntity;
+import com.example.amirahmadadibi.myapplication.database.NoteEntity;
 
 import java.util.List;
 
