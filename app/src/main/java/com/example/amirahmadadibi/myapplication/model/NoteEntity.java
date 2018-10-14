@@ -7,7 +7,7 @@ public class NoteEntity {
     private int id;
     private Date date;
     private String text;
-    //create and assign values individualy
+    //create and assign values individually
     public NoteEntity() {
 
     }
