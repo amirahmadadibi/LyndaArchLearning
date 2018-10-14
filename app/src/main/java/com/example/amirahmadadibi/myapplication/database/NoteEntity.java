@@ -21,7 +21,7 @@ public class NoteEntity {
     }
 
     //edit
-    public   NoteEntity(int id, Date date, String text) {
+    public NoteEntity(int id, Date date, String text) {
         this.id = id;
         this.date = date;
         this.text = text;

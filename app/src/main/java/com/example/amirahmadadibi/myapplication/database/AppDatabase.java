@@ -3,9 +3,14 @@ package com.example.amirahmadadibi.myapplication.database;
 import android.arch.persistence.room.Database;
 import android.arch.persistence.room.Room;
 import android.arch.persistence.room.RoomDatabase;
+import android.arch.persistence.room.TypeConverter;
+import android.arch.persistence.room.TypeConverters;
 import android.content.Context;
 
+import java.util.Date;
+
 @Database(entities = {NoteEntity.class}, version = 1)
+@TypeConverters(DateConvertor.class)
 public abstract class AppDatabase extends RoomDatabase {
     public static final String DATABASE_NAME = "AppDatabase.db";
 
@@ -16,7 +21,6 @@ public abstract class AppDatabase extends RoomDatabase {
     //because this method will never ba called directly, instead there will be some generated code
     //that's created by the room database in background,and that's the version of method that we calling
     public abstract NoteDao noteDao();
-
 
     //singltone pattern for saveing instace
     public static AppDatabase getInstance(Context context) {
