@@ -1,5 +1,7 @@
 package com.example.amirahmadadibi.myapplication;
 
+import android.arch.lifecycle.ViewModelProvider;
+import android.arch.lifecycle.ViewModelProviders;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -13,6 +15,7 @@ import android.view.MenuItem;
 import com.example.amirahmadadibi.myapplication.database.NoteEntity;
 import com.example.amirahmadadibi.myapplication.ui.NotesAdapter;
 import com.example.amirahmadadibi.myapplication.utilities.SampleData;
+import com.example.amirahmadadibi.myapplication.viewmodel.MainViewModel;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -33,6 +36,7 @@ public class MainActivity extends AppCompatActivity {
 
     private List<NoteEntity> noteEntities = new ArrayList<>();
     private NotesAdapter mAdapter;
+    private MainViewModel mViewModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,14 +45,20 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         ButterKnife.bind(this);
-
+        initViewModel();
         initRecyclerView();
 
-        noteEntities.addAll(SampleData.getNotes());
+        noteEntities.addAll(mViewModel.mNotes);
         for (NoteEntity note :
                 noteEntities) {
-            Log.i("PlainOlNotes", note.toString());
+            Log.i("PlainOlNotes",
+                    note.toString());
         }
+    }
+
+    private void initViewModel() {
+        mViewModel = ViewModelProviders.of(this)
+                .get(MainViewModel.class);
     }
 
     private void initRecyclerView() {
