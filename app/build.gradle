@@ -3,7 +3,7 @@ apply plugin: 'com.android.application'
 android {
     compileSdkVersion 28
     defaultConfig {
-        applicationId "com.example.amirahmadadibi.myapplication"
+        applicationId 'com.example.amirahmadadibi.myapplication'
         minSdkVersion 15
         targetSdkVersion 28
         versionCode 1
@@ -16,6 +16,8 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
+    }
+    productFlavors {
     }
 }
 
@@ -35,4 +37,9 @@ dependencies {
     annotationProcessor "android.arch.persistence.room:compiler:$room_version"
     implementation 'com.jakewharton:butterknife:9.0.0-rc1'
     annotationProcessor 'com.jakewharton:butterknife-compiler:9.0.0-rc1'
+    
+    debugImplementation 'com.amitshekhar.android:debug-db:1.0.4'
+
+    implementation 'com.squareup.retrofit2:retrofit:2.4.0'
+
 }

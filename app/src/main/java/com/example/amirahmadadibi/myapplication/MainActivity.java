@@ -1,6 +1,5 @@
 package com.example.amirahmadadibi.myapplication;
 
-import android.arch.lifecycle.ViewModelProvider;
 import android.arch.lifecycle.ViewModelProviders;
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,10 +10,11 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
+import com.amitshekhar.DebugDB;
 import com.example.amirahmadadibi.myapplication.database.NoteEntity;
 import com.example.amirahmadadibi.myapplication.ui.NotesAdapter;
-import com.example.amirahmadadibi.myapplication.utilities.SampleData;
 import com.example.amirahmadadibi.myapplication.viewmodel.MainViewModel;
 
 import java.util.ArrayList;
@@ -84,10 +84,18 @@ public class MainActivity extends AppCompatActivity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
+        if (id == R.id.action_add_sample_data) {
+            Toast.makeText(this, "amirahmad adibi", Toast.LENGTH_SHORT).show();
+            addSampleData();
             return true;
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    private void addSampleData() {
+        mViewModel.addSampleData();
+        Log.d("db", "run: main activity call");
+        Log.d("db", "debug address: " + DebugDB.getAddressLog());
     }
 }

@@ -8,6 +8,7 @@ import android.arch.persistence.room.OnConflictStrategy;
 import android.arch.persistence.room.Query;
 
 import java.util.List;
+
 //it defines all of operations we want to execute with particular data set
 @Dao
 public interface NoteDao {
@@ -15,7 +16,7 @@ public interface NoteDao {
     void insertNote(NoteEntity noteEntity);
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    void insertAll(List<NoteEntity> noteEntitys);
+    Long[] insertAll(List<NoteEntity> noteEntitys);
 
     @Delete
     void deleteNote(NoteEntity noteEntity);
